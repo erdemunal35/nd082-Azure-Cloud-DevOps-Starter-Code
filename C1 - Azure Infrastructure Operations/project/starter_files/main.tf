@@ -2,16 +2,6 @@ provider "azurerm" {
   features {}
 }
 
-# resource "azurerm_resource_group" "main" {
-#   name     = "Azuredevops"
-#   location = var.location
-  
-#   tags = {
-#     "project": var.project_tag
-#   }	
-  
-# }
-
 resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
