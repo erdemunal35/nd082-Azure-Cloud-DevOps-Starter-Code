@@ -1,0 +1,85 @@
+uena034@Erdems-MBP starter_files % packer build server.json
+azure-arm: output will be in this color.
+
+==> azure-arm: Running builder ...
+==> azure-arm: Getting tokens using client secret
+==> azure-arm: Getting tokens using client secret
+    azure-arm: Creating Azure Resource Manager (ARM) client ...
+==> azure-arm: Getting source image id for the deployment ...
+==> azure-arm:  -> SourceImageName: '/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/providers/Microsoft.Compute/locations/eastus/publishers/Canonical/ArtifactTypes/vmimage/offers/UbuntuServer/skus/18.04-LTS/versions/latest'
+==> azure-arm: Using existing resource group ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> Location          : 'eastus'
+==> azure-arm: Validating deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> DeploymentName    : 'pkrdpep2gkfwuyr'
+==> azure-arm: Deploying deployment template ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> DeploymentName    : 'pkrdpep2gkfwuyr'
+==> azure-arm: Getting the VM's IP address ...
+==> azure-arm:  -> ResourceGroupName   : 'Azuredevops'
+==> azure-arm:  -> PublicIPAddressName : 'pkripep2gkfwuyr'
+==> azure-arm:  -> NicName             : 'pkrniep2gkfwuyr'
+==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
+==> azure-arm:  -> IP Address          : '20.163.151.23'
+==> azure-arm: Waiting for SSH to become available...
+==> azure-arm: Connected to SSH!
+==> azure-arm: Provisioning with shell script: /var/folders/0z/g7_2dmr93219x2whdj_v6dtc0000gq/T/packer-shell3478880034
+==> azure-arm: + echo Hello, World!
+==> azure-arm: + nohup busybox httpd -f -p 80
+==> azure-arm: Querying the machine's properties ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> ComputeName       : 'pkrvmep2gkfwuyr'
+==> azure-arm:  -> Managed OS Disk   : '/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/disks/pkrosep2gkfwuyr'
+==> azure-arm: Querying the machine's additional disks properties ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> ComputeName       : 'pkrvmep2gkfwuyr'
+==> azure-arm: Powering off machine ...
+==> azure-arm:  -> ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> ComputeName       : 'pkrvmep2gkfwuyr'
+==> azure-arm: Capturing image ...
+==> azure-arm:  -> Compute ResourceGroupName : 'Azuredevops'
+==> azure-arm:  -> Compute Name              : 'pkrvmep2gkfwuyr'
+==> azure-arm:  -> Compute Location          : 'eastus'
+==> azure-arm:  -> Image ResourceGroupName   : 'Azuredevops'
+==> azure-arm:  -> Image Name                : 'project-1'
+==> azure-arm:  -> Image Location            : 'eastus'
+==> azure-arm: 
+==> azure-arm: Deleting individual resources ...
+==> azure-arm: Adding to deletion queue -> Microsoft.Compute/virtualMachines : 'pkrvmep2gkfwuyr'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/networkInterfaces : 'pkrniep2gkfwuyr'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/publicIPAddresses : 'pkripep2gkfwuyr'
+==> azure-arm: Adding to deletion queue -> Microsoft.Network/virtualNetworks : 'pkrvnep2gkfwuyr'
+==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnep2gkfwuyr'
+==> azure-arm: Waiting for deletion of all resources...
+==> azure-arm: Attempting deletion -> Microsoft.Compute/virtualMachines : 'pkrvmep2gkfwuyr'
+==> azure-arm: Attempting deletion -> Microsoft.Network/networkInterfaces : 'pkrniep2gkfwuyr'
+==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkripep2gkfwuyr'
+==> azure-arm: Error deleting resource. Will retry.
+==> azure-arm: Name: pkripep2gkfwuyr
+==> azure-arm: Error: network.PublicIPAddressesClient#Delete: Failure sending request: StatusCode=400 -- Original Error: Code="PublicIPAddressCannotBeDeleted" Message="Public IP address /subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/publicIPAddresses/pkripep2gkfwuyr can not be deleted since it is still allocated to resource /subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/pkrniep2gkfwuyr/ipConfigurations/ipconfig. In order to delete the public IP, disassociate/detach the Public IP address from the resource.  To learn how to do this, see aka.ms/deletepublicip." Details=[]
+==> azure-arm:
+==> azure-arm: Error deleting resource. Will retry.
+==> azure-arm: Name: pkrvnep2gkfwuyr
+==> azure-arm: Error: network.VirtualNetworksClient#Delete: Failure sending request: StatusCode=400 -- Original Error: Code="InUseSubnetCannotBeDeleted" Message="Subnet pkrsnep2gkfwuyr is in use by /subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/pkrniep2gkfwuyr/ipConfigurations/ipconfig and cannot be deleted. In order to delete the subnet, delete all the resources within the subnet. See aka.ms/deletesubnet." Details=[]
+==> azure-arm:
+==> azure-arm: Attempting deletion -> Microsoft.Network/publicIPAddresses : 'pkripep2gkfwuyr'
+==> azure-arm: Attempting deletion -> Microsoft.Network/virtualNetworks : 'pkrvnep2gkfwuyr'
+==> azure-arm:  Deleting -> Microsoft.Compute/disks : '/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/disks/pkrosep2gkfwuyr'
+==> azure-arm: Removing the created Deployment object: 'pkrdpep2gkfwuyr'
+==> azure-arm: 
+==> azure-arm: The resource group was not created by Packer, not deleting ...
+Build 'azure-arm' finished after 3 minutes 50 seconds.
+
+==> Wait completed after 3 minutes 50 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> azure-arm: Azure.ResourceManagement.VMImage:
+
+OSType: Linux
+ManagedImageResourceGroupName: Azuredevops
+ManagedImageName: project-1
+ManagedImageId: /subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/project-1
+ManagedImageLocation: eastus
+
+uena034@Erdems-MBP starter_files % 

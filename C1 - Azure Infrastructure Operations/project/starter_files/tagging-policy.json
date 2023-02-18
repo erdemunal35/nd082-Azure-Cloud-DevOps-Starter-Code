@@ -1,0 +1,33 @@
+{
+    "properties": {
+      "displayName": "tagging-policy",
+      "policyType": "BuiltIn",
+      "mode": "Indexed",
+      "description": "Enforces existence of a tag. Does not apply to resource groups.",
+      "metadata": {
+        "version": "1.0.1",
+        "category": "Tags"
+      },
+      "parameters": {
+        "tagName": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Tag Name",
+            "description": "Name of the tag, such as 'environment'"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "field": "[concat('tags[', parameters('tagName'), ']')]",
+          "exists": "false"
+        },
+        "then": {
+          "effect": "deny"
+        }
+      }
+    },
+    "id": "/providers/Microsoft.Authorization/policyDefinitions/a9ab978b-a5d4-42b1-a453-fe2690ceb40f",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "a9ab978b-a5d4-42b1-a453-fe2690ceb40f"
+  }

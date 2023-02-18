@@ -1,0 +1,7 @@
+admin_username = "odl_user_226354@udacityhol.onmicrosoft.com"
+admin_password = "ippe11JHK*Ua"
+subscription_id = "0ee6d06f-69ab-4b3b-9f35-003e1b6eb227"
+resource_group_name = "Azuredevops"
+image_name = "project-1"
+location = "eastus"
+project_tag = "udacity-azure-devops-nanodegree-project-1"

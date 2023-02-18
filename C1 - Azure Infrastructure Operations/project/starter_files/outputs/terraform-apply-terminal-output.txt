@@ -1,0 +1,49 @@
+uena034@Erdems-MBP starter_files % terraform apply "solution.plan"                                                                                         
+azurerm_resource_group.main: Modifying... [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops]
+azurerm_resource_group.main: Modifications complete after 2s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops]
+azurerm_network_security_group.main: Creating...
+azurerm_virtual_network.main: Creating...
+azurerm_availability_set.main: Creating...
+azurerm_public_ip.main: Creating...
+azurerm_availability_set.main: Creation complete after 5s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/availabilitySets/udacity-aset]
+azurerm_public_ip.main: Creation complete after 6s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/publicIPAddresses/acceptanceTestPublicIp1]
+azurerm_lb.main: Creating...
+azurerm_network_security_group.main: Creation complete after 9s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkSecurityGroups/udacity-security-group]
+azurerm_network_security_rule.deny_all: Creating...
+azurerm_network_security_rule.subnet_only: Creating...
+azurerm_virtual_network.main: Creation complete after 9s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/udacity-network]
+azurerm_subnet.main: Creating...
+azurerm_lb.main: Creation complete after 6s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/loadBalancers/UdacityLoadBalancer]
+azurerm_lb_backend_address_pool.main: Creating...
+azurerm_subnet.main: Creation complete after 7s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/udacity-network/subnets/internal]
+azurerm_network_interface.main[0]: Creating...
+azurerm_network_interface.main[1]: Creating...
+azurerm_lb_backend_address_pool.main: Creation complete after 4s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/loadBalancers/UdacityLoadBalancer/backendAddressPools/BackEndAddressPool]
+azurerm_network_security_rule.deny_all: Still creating... [10s elapsed]
+azurerm_network_security_rule.subnet_only: Still creating... [10s elapsed]
+azurerm_network_security_rule.deny_all: Creation complete after 12s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkSecurityGroups/udacity-security-group/securityRules/deny-all-rule]
+azurerm_network_interface.main[0]: Creation complete after 5s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/udacity-nic-0]
+azurerm_network_security_rule.subnet_only: Creation complete after 13s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkSecurityGroups/udacity-security-group/securityRules/subnet-only-rule]
+azurerm_network_interface.main[1]: Creation complete after 8s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/udacity-nic-1]
+azurerm_network_interface_backend_address_pool_association.main[0]: Creating...
+azurerm_network_interface_backend_address_pool_association.main[1]: Creating...
+azurerm_linux_virtual_machine.main[0]: Creating...
+azurerm_linux_virtual_machine.main[1]: Creating...
+azurerm_network_interface_backend_address_pool_association.main[0]: Creation complete after 2s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/udacity-nic-0/ipConfigurations/internal|/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/loadBalancers/UdacityLoadBalancer/backendAddressPools/BackEndAddressPool]
+azurerm_network_interface_backend_address_pool_association.main[1]: Creation complete after 2s [id=/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/networkInterfaces/udacity-nic-1/ipConfigurations/internal|/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Network/loadBalancers/UdacityLoadBalancer/backendAddressPools/BackEndAddressPool]
+╷
+│ Error: creating Linux Virtual Machine: (Name "udacity-vm-0" / Resource Group "Azuredevops"): compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=404 -- Original Error: Code="NotFound" Message="The Image '/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/project-1' cannot be found in 'eastus' region."
+│ 
+│   with azurerm_linux_virtual_machine.main[0],
+│   on main.tf line 149, in resource "azurerm_linux_virtual_machine" "main":
+│  149: resource "azurerm_linux_virtual_machine" "main" {
+│ 
+╵
+╷
+│ Error: creating Linux Virtual Machine: (Name "udacity-vm-1" / Resource Group "Azuredevops"): compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=404 -- Original Error: Code="NotFound" Message="The Image '/subscriptions/0ee6d06f-69ab-4b3b-9f35-003e1b6eb227/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/project-1' cannot be found in 'eastus' region."
+│ 
+│   with azurerm_linux_virtual_machine.main[1],
+│   on main.tf line 149, in resource "azurerm_linux_virtual_machine" "main":
+│  149: resource "azurerm_linux_virtual_machine" "main" {
+│ 
+╵
